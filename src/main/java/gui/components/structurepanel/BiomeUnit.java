@@ -10,9 +10,9 @@ import java.awt.*;
 
 public class BiomeUnit extends JPanel {
 
-    private final JTextField xCord;
-    private final JTextField zCord;
-    private final SelectionBox<Biome> biomeSelector;
+    public final JTextField xCord;
+    public final JTextField zCord;
+    public final SelectionBox<Biome> biomeSelector;
 
     public BiomeUnit() {
         this.xCord = new JTextField();

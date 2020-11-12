@@ -24,7 +24,7 @@ task fatJar(type: Jar) {
         )
     }
     outputs.upToDateWhen { false }
-    project.archivesBaseName = "SeedCandy"
+    project.archivesBaseName = "SeedCandyExtra"
     from {
         configurations.runtimeClasspath.collect {
             it.isDirectory() ? it : zipTree(it)

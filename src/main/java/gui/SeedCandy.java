@@ -2,6 +2,7 @@ package gui;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import gui.components.dungeonpanel.DungeonPanel;
+import gui.components.generatorpanel.ExtraPanel;
 import gui.components.structurepanel.StructurePanel;
 import gui.components.worldpanel.WorldPanel;
 import threading.ThreadPool;
@@ -16,6 +17,7 @@ public class SeedCandy extends JFrame {
     public DungeonPanel dungeonPanel;
     public StructurePanel structurePanel;
     public WorldPanel worldPanel;
+    public ExtraPanel extraPanel;
     public final JTabbedPane tabbedPane;
 
     public static void main(String[] args) {
@@ -28,11 +30,13 @@ public class SeedCandy extends JFrame {
         this.dungeonPanel = new DungeonPanel();
         this.structurePanel = new StructurePanel();
         this.worldPanel = new WorldPanel();
+        this.extraPanel = new ExtraPanel();
         this.tabbedPane = new JTabbedPane();
 
         this.tabbedPane.add(this.dungeonPanel);
         this.tabbedPane.add(this.structurePanel);
         this.tabbedPane.add(this.worldPanel);
+        this.tabbedPane.add(this.extraPanel);
         this.add(this.tabbedPane);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

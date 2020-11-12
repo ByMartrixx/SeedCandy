@@ -18,8 +18,10 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class WorldPanel extends JPanel{
+    public final TextBlock inputText;
+
     public WorldPanel() {
-        TextBlock inputText = new TextBlock(true);
+        inputText = new TextBlock(true);
         TextBlock outputText = new TextBlock(false);
         JPanel inputPanel = new JPanel(new BorderLayout());
         JPanel buttonPanel = new JPanel(new GridLayout(0, 2));
