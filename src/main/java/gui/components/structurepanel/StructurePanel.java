@@ -3,6 +3,7 @@ package gui.components.structurepanel;
 import data.Strings;
 import gui.SeedCandy;
 import gui.components.TextBlock;
+import gui.components.BiomeUnit;
 import kaptainwutax.biomeutils.source.OverworldBiomeSource;
 import kaptainwutax.seedutils.mc.MCVersion;
 import kaptainwutax.seedutils.mc.seed.StructureSeed;
@@ -46,7 +47,7 @@ public class StructurePanel extends JPanel {
                         progressBar.setValue(progress.incrementAndGet());
                         boolean match = true;
                         for (int i = 0; i < 16; i++) {
-                            if (!biomePanel.getComponent(0, i).matches(biomeSource)) {
+                            if (biomePanel.getComponent(0, i).doesNotMatch(biomeSource)) {
                                 match = false;
                                 break;
                             }
@@ -60,7 +61,7 @@ public class StructurePanel extends JPanel {
                         OverworldBiomeSource biomeSource = new OverworldBiomeSource(MCVersion.v1_16_2, seed);
                         boolean match = true;
                         for (int i = 0; i < 16; i++) {
-                            if (!biomePanel.getComponent(0, i).matches(biomeSource)) {
+                            if (biomePanel.getComponent(0, i).doesNotMatch(biomeSource)) {
                                 match = false;
                                 break;
                             }
