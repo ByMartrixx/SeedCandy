@@ -32,7 +32,7 @@ public class LocatorPanel extends JPanel {
         this.progressBar = new JProgressBar(0, 1);
         JPanel leftPanel = new JPanel(new BorderLayout());
 
-        // Biome locator. TODO: Search center coordinates
+        // Biome locator
         JButton locateBiomeButton = new JButton("locate");
         SelectionBox<Dimension> biomeDimensionSelector = new SelectionBox<>(Dimension::toString, Dimension.values());
         biomeDimensionSelector.setToolTipText("dimension");
@@ -45,6 +45,9 @@ public class LocatorPanel extends JPanel {
             SeedCandy.POOL.execute(Strings.splitToLongs(this.inputText.getText()), seed -> {
                 Biome biomeToSearch = biomeUnit.biomeSelector.getSelected();
                 Dimension dimension = biomeUnit.dimensionSelector.getSelected();
+                int centerX = !biomeUnit.xCord.getText().equals("") && !biomeUnit.xCord.getText().equals("X") ? Integer.parseInt(biomeUnit.xCord.getText().trim()) : 0;
+                int centerZ = !biomeUnit.zCord.getText().equals("") && !biomeUnit.zCord.getText().equals("Z") ? Integer.parseInt(biomeUnit.zCord.getText().trim()) : 0;
+
                 JRand rand = new JRand(seed);
                 BiomeSource biomeSource;
 
@@ -67,7 +70,7 @@ public class LocatorPanel extends JPanel {
                         break;
                 }
 
-                BPos biomePos = biomeSource.locateNearestBiome(0, 0, 0, 32768,
+                BPos biomePos = biomeSource.locateNearestBiome(centerX, 0, centerZ, 32768,
                         Collections.singleton(biomeToSearch), rand);
                 if (biomePos != null)
                     SwingUtilities.invokeLater(() -> this.outputText.addEntry(String.format("%d\n -> (%d, %d)", seed, biomePos.getX(), biomePos.getZ())));

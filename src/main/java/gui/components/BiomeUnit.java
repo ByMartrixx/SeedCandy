@@ -61,7 +61,7 @@ public class BiomeUnit extends JPanel {
     }
 
     public BiomeUnit(SelectionBox<Dimension> dimensionSelector, JButton locateButton) {
-        this(false, false);
+        this(true, false);
 
         this.dimensionSelector = dimensionSelector;
         this.locateButton = locateButton;
